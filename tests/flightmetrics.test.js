@@ -57,7 +57,9 @@ describe('Test Flight Metrics API', () => {
 
         const res = await agent.get(`/portfolios/${portfolio.id}/flightmetrics/${metricsOptions.all}`);
         expect(res.status).toEqual(statusCodes.OK);
-        console.log(res.body);
+        expect(res.body).toHaveProperty('restructuredFlights');
+        expect(res.body.restructuredFlights[0].numberOfFligts).toEqual(2);
+        expect(res.body.restructuredFlights[0].totalHour).toEqual(2);
         done();
     })
 })
