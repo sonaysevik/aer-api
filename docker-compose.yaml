@@ -1,0 +1,21 @@
+version: '2.0'
+services:
+  db:
+    build: 
+      context: ./
+      dockerfile: db.Dockerfile
+    image: postgres_db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=aerlytix_vCRt65
+      - POSTGRES_USER=api_user
+      - POSTGRES_DB=flights
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+
+networks:
+  flights:
+    driver: bridge
