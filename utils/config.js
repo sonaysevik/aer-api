@@ -17,7 +17,7 @@ const sequelize = new Sequelize(configs.DB_NAME,
                             { host: configs.DB_HOST,
                               dialect: "postgres", 
                               port:    5432,
-                              logging: false
+                              logging: configs.NODE_ENV === 'test' ? false : true
                             });
 
 sequelize

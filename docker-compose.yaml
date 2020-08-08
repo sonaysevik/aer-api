@@ -2,7 +2,7 @@ version: '2.0'
 services:
   db:
     build: 
-      context: ./
+      context: ./database/
       dockerfile: db.Dockerfile
     image: postgres_db
     ports:
@@ -15,7 +15,16 @@ services:
     image: adminer
     ports:
       - 8080:8080
-
-networks:
-  flights:
-    driver: bridge
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: api
+    ports: 
+      - 2001:2001
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_NAME=flights
+      - DB_USERNAME=api_user
+      - DB_PASSWORD=aerlytix_vCRt65
