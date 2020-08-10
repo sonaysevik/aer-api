@@ -49,7 +49,6 @@ describe('Test Flight Metrics API', () => {
         }).save();
         await Promise.all(
             flight_metrics_test.map((obj) => {
-                console.log(obj);
                 return Flights.build(obj).save();
             })
         );

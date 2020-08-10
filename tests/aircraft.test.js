@@ -27,6 +27,7 @@ describe('Test Aircraft return API.', () => {
         const res = await agent
         .get('/aircrafts')
         .send();
+      expect(res.body).toHaveProperty('aircrafts');
       expect(res.body.aircrafts.length).toEqual(6);
       expect(res.statusCode).toEqual(200);
       done();

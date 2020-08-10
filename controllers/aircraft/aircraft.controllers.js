@@ -6,7 +6,6 @@ const logger = require('../../utils/logger');
 
 const getAircrafts = async (req, res, next) => {
     logger.info('Listing aircrafts starts.');
-    const s= s.s.s;
     let aircrafts = null;
     try {
         aircrafts = await Aircraft.findAll();
