@@ -6,22 +6,22 @@ const Portfolio = require('././../models/portfolios');
 const { truncate } = require('./test_utils');
 let server, agent;
 
-beforeEach((done) => {
+beforeAll((done) => {
     server = app.listen(4000, async (err) => {
       if (err) return done(err);
        agent = request.agent(server); 
-       await truncate();
        done();
     });
 });
 
-afterEach((done) => {
-  return  server && server.close(done);
-});
+beforeEach(async (done) => {
+  await truncate();
+  done();
+})
 
 afterAll((done) => {
-
   sequelize.close();
+  return  server && server.close(done);
   done();
 })
 

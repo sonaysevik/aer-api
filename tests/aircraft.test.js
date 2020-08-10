@@ -3,7 +3,7 @@ const request = require('supertest');
 const { sequelize } = require('../utils/config');
 let server, agent;
 
-beforeEach((done) => {
+beforeAll((done) => {
     server = app.listen(4000, (err) => {
       if (err) return done(err);
 
@@ -12,7 +12,7 @@ beforeEach((done) => {
     });
 });
 
-afterEach((done) => {
+afterAll((done) => {
   return server && server.close(done);
 });
 

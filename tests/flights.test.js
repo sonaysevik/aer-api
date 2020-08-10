@@ -11,24 +11,24 @@ const {
     } = require('./fligths.data');
 
 let server, agent;
-beforeEach((done) => {
-    server = app.listen(4000, async (err) => {
-      if (err) return done(err);
-       agent = request.agent(server);
-       await truncate();
-       done();
 
-    });
+beforeAll((done) => {
+    server = app.listen(4000, async (err) => {
+        if (err) return done(err);
+         agent = request.agent(server);
+         done();
+      });
 });
 
-afterEach((done) => {
-    return  server && server.close(done);
+beforeEach(async (done) => {
+    await truncate();
+    done();
 });
 
 afterAll((done) => {
     sequelize.close();
-    done();
-})
+    return  server && server.close(done);
+});
 
 describe('Test Flights POST API.', () => {
     it('should return error for wrong airports', async (done) => {
