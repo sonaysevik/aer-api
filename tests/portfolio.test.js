@@ -34,7 +34,7 @@ describe('Test Portfolio API.', () => {
       expect(res.body.portfolios.length).toEqual(0);
       done();
     }),
-    it('should return 200 when creating portfolio', async (done) => {
+    it('should return 201 when creating portfolio', async (done) => {
       const res = await agent
       .post('/portfolios')
       .send(portfolio_obj);

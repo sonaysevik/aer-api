@@ -59,7 +59,7 @@ describe('Test Flights POST API.', () => {
         expect(res.body).toHaveProperty('message');
         done();
     }),
-    it('should return 200 for regular object', async (done) => {
+    it('should return 201 for regular object', async (done) => {
         future_timestamps.departureTimestamp = Date.now() +3000;
         const res = await agent.post('/flights')
                                 .send(correct_object)
