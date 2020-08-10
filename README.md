@@ -1,6 +1,20 @@
 # Aerlytix Fligths API
 
-#Environment Variables
+There are  4 main endpoints in the project: 
+    - /aircrafts: Lists existing aircrafts in the DB.
+        - GET /aircrafts
+    - /portfolios: Handles operations around portfolios. Saving a new portfolio, adding new aircrafts, retunrning flight metrics based on portolio.
+        - POST /portfolios
+        - GET /portfolios
+        - POST /portfolios/:portfolioId/aircrafts/:aircraftId
+        - GET /portfolios/:portfolioId/aircrafts
+        - GET /portfolios/:portfolioId/flightmetrics/:metricsOption
+    - /flights: Saves new flights.
+        - POST /flights
+    - /flightmetrics: Returns all flights statistics since start.
+        - GET /flightmetrics
+
+# Environment Variables
 
 API project needs following environment variables:
 
