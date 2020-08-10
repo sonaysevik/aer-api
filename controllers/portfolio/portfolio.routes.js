@@ -15,11 +15,11 @@ const {
     
 
 router.get('/portfolios', asyncHandler(getPortfolios), returnFunction);
-router.post('/portfolios', addPortfolio, returnFunction);
+router.post('/portfolios', asyncHandler(addPortfolio), returnFunction);
 
-router.post('/portfolios/:portfolioId/aircrafts/:aircraftId', addAircraft, returnFunction);
+router.post('/portfolios/:portfolioId/aircrafts/:aircraftId', asyncHandler(addAircraft), returnFunction);
 router.get('/portfolios/:portfolioId/aircrafts', asyncHandler(getPortfolioAircrafts), returnFunction)
-router.get('/portfolios/:portfolioId/flightmetrics/:metricsOption', returnPortfolioFlightStatistics, returnFunction);
+router.get('/portfolios/:portfolioId/flightmetrics/:metricsOption', asyncHandler(returnPortfolioFlightStatistics), returnFunction);
 
 
 router.delete('/portfolios/:portfolioId/aircrafts/:aircraftId', removeAircraft, returnFunction);
