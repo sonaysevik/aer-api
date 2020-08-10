@@ -1,6 +1,7 @@
 # Aerlytix Fligths API
 
 There are  4 main endpoints in the project: 
+
     - /aircrafts: Lists existing aircrafts in the DB.
         - GET /aircrafts
     - /portfolios: Handles operations around portfolios. Saving a new portfolio, adding new aircrafts, retunrning flight metrics based on portolio.
